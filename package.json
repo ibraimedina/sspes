@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "eslint": "^3.15.0",
     "react-scripts": "0.8.5"
   },
   "dependencies": {
     "material-ui": "^0.16.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-layout-components": "^3.0.4",
     "react-tap-event-plugin": "^2.0.1"
   },
   "scripts": {
