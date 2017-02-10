@@ -50,8 +50,18 @@ const ListPlayers = function(callback) {
         jsonCallback(callback));
 };
 
+const ListMatches = function(callback) {
+    const token = localStorage.getItem("sspes-token");
+    BaseReq(
+        "GET",
+        "https://baas.kinvey.com/appdata/kid_HyAXFKzde/matches",
+        {Authorization: "Kinvey " + token, "Content-Type": "application/json"},
+        jsonCallback(callback));
+};
+
 export default {
     AppKey,
     LogIn,
-    ListPlayers
+    ListPlayers,
+    ListMatches,
 };
