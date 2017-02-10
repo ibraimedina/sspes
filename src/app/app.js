@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField'
 
 import { browserHistory } from 'react-router'
-import AppApi from '../api/api';
+import AppApi from '../api';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -17,8 +17,8 @@ class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			user: "",
-			pass: ""
+			user: '',
+			pass: ''
 		};
 		this.onChangeUser = this.onChangeUser.bind(this);
 		this.onChangePass = this.onChangePass.bind(this);

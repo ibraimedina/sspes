@@ -1,6 +1,6 @@
 import React from 'react'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import AppApi from '../api/api';
+import AppApi from '../api';
 
 class Matches extends React.Component {
 	constructor(props) {
@@ -23,7 +23,7 @@ class Matches extends React.Component {
 		));
 		return (
 			<Table>
-				<TableHeader>
+				<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
 					<TableRow>
 						<TableHeaderColumn>Jogadores casa</TableHeaderColumn>
 						<TableHeaderColumn>Equipe casa</TableHeaderColumn>

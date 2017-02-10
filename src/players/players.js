@@ -1,6 +1,6 @@
 import React from 'react'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import AppApi from '../api/api';
+import AppApi from '../api';
 
 class Players extends React.Component {
 	constructor(props) {
@@ -23,7 +23,7 @@ class Players extends React.Component {
 		));
 		return (
 			<Table>
-				<TableHeader>
+				<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
 					<TableRow>
 						<TableHeaderColumn>Nome</TableHeaderColumn>
 						<TableHeaderColumn>Gols</TableHeaderColumn>
@@ -36,7 +36,7 @@ class Players extends React.Component {
 			</Table>
 		);
 	}
-}
+};
 
 function Player(props) {
 	return (

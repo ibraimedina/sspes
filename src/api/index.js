@@ -1,9 +1,8 @@
 const BaseReq = function(method, url, headers, callback, data) {
     const req = new XMLHttpRequest();
     req.onreadystatechange = function() {
-        console.debug("onreadystatechange");
         if (this.readyState === 4) {
-            callback(this.responseText);
+            callback(JSON.parse(this.responseText));
         }
     };
     req.open(method, url);
@@ -20,8 +19,7 @@ const AppKey = "kid_HyAXFKzde";
 
 const LogIn = function(username, password, callback) {
     const hash = btoa(username + ":" + password);
-    const loginCallback = function(res) {
-        const token = JSON.parse(res);
+    const loginCallback = function(token) {
         localStorage.setItem("sspes-token", token._kmd.authtoken);
         callback(token)
     }
@@ -34,20 +32,14 @@ const LogIn = function(username, password, callback) {
     );
 };
 
-const jsonCallback = function(callback) {
-    return function(res) {
-        const token = JSON.parse(res);
-        callback(token)
-    }
-}
-
 const ListPlayers = function(callback) {
     const token = localStorage.getItem("sspes-token");
     BaseReq(
         "GET",
         "https://baas.kinvey.com/appdata/kid_HyAXFKzde/players",
         {Authorization: "Kinvey " + token, "Content-Type": "application/json"},
-        jsonCallback(callback));
+        callback
+    );
 };
 
 const ListMatches = function(callback) {
@@ -56,7 +48,8 @@ const ListMatches = function(callback) {
         "GET",
         "https://baas.kinvey.com/appdata/kid_HyAXFKzde/matches",
         {Authorization: "Kinvey " + token, "Content-Type": "application/json"},
-        jsonCallback(callback));
+        callback
+    );
 };
 
 export default {

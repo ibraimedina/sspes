@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react'
 import { Router, Route, browserHistory } from 'react-router'
-import App from "./app"
-import Players from "../players/players"
-import Matches from "../matches/matches"
+import App from './app'
+import Players from '../players/players'
+import Matches from '../matches/matches'
 
 function AppRouter() {
 	return (
