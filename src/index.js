@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-import AppRouter from './app/router';
-import AppTheme from './app/theme';
+import AppRouter from './app/router'
+import AppTheme from './app/theme'
 
 ReactDOM.render(
 	<MuiThemeProvider muiTheme={AppTheme}>	
 		<AppRouter/>
-  	</MuiThemeProvider>,
+	</MuiThemeProvider>,
 	document.getElementById('root')
-);
+)

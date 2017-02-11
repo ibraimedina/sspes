@@ -1,26 +1,26 @@
 import React from 'react'
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import AppApi from '../api';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
+import AppApi from '../api'
 
 class Matches extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			matches: []
-		};
+		}
 
-		this.updateMatches = this.updateMatches.bind(this);
-		AppApi.ListMatches(this.updateMatches);
+		this.updateMatches = this.updateMatches.bind(this)
+		AppApi.ListMatches(this.updateMatches)
 	}
 
 	updateMatches(matches) {
-		this.setState({ matches });
+		this.setState({ matches })
 	}
 
 	render() {
 		const matchList = Array.of(...this.state.matches).map((o,i) => (
 			<Match key={i} match={o} />
-		));
+		))
 		return (
 			<Table>
 				<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
@@ -37,7 +37,7 @@ class Matches extends React.Component {
 					{matchList}
 				</TableBody>
 			</Table>
-		);
+		)
 	}
 }
 
@@ -51,7 +51,7 @@ function Match(props) {
 			<TableRowColumn>{props.match.teamAway}</TableRowColumn>
 			<TableRowColumn>{props.match.playerAwayName}</TableRowColumn>
 		</TableRow>
-	);
+	)
 }
 
-export default Matches;
+export default Matches

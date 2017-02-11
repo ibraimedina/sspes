@@ -11,7 +11,7 @@ function AppRouter() {
 			<Route path="/players" component={Players}/>
 			<Route path="*" component={App}/>
 		</Router>
-	);
+	)
 }
 
-export default AppRouter;
+export default AppRouter

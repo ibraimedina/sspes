@@ -1,26 +1,26 @@
 import React from 'react'
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import AppApi from '../api';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
+import AppApi from '../api'
 
 class Players extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			players: []
-		};
+		}
 
-		this.updatePlayers = this.updatePlayers.bind(this);
-		AppApi.ListPlayers(this.updatePlayers);
+		this.updatePlayers = this.updatePlayers.bind(this)
+		AppApi.ListPlayers(this.updatePlayers)
 	}
 
 	updatePlayers(players) {
-		this.setState({ players });
+		this.setState({ players })
 	}
 
 	render() {
 		const playerList = Array.of(...this.state.players).map((o,i) => (
 			<Player key={i} player={o} />
-		));
+		))
 		return (
 			<Table>
 				<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
@@ -34,9 +34,9 @@ class Players extends React.Component {
 					{playerList}
 				</TableBody>
 			</Table>
-		);
+		)
 	}
-};
+}
 
 function Player(props) {
 	return (
@@ -45,7 +45,7 @@ function Player(props) {
 			<TableRowColumn>{props.player.goals}</TableRowColumn>
 			<TableRowColumn>{props.player.matches}</TableRowColumn>
 		</TableRow>
-	);
+	)
 }
 
-export default Players;
+export default Players
