@@ -1,14 +1,15 @@
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import { blueGrey600, blueGrey800, grey500, lightGreenA200, lightGreenA100, greenA700 } from 'material-ui/styles/colors'
+import { blueGrey500, blueGrey800, lightGreenA200 } from 'material-ui/styles/colors'
 
 const AppLightTheme = getMuiTheme({
 	palette: {
-		primary1Color: blueGrey600,
-		primary2Color: blueGrey800,
-		primary3Color: grey500,
-		accent1Color: lightGreenA200,
-		accent2Color: lightGreenA100,
-		accent3Color: greenA700,
+		primary1Color: blueGrey500, // cyan500, // buttons, lines, areas
+		primary2Color: blueGrey800, // cyan700,
+		// primary3Color: grey400,
+		accent1Color: lightGreenA200, // pinkA200, // details like small lines, attentions
+		// accent2Color: grey100, // hovers
+		// accent3Color: greenA700, // grey500, // minor texts, like table headers
+
         // textColor: darkBlack,
         // secondaryTextColor: fade(darkBlack, 0.54),
         // alternateTextColor: white,

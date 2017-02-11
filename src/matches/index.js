@@ -1,6 +1,6 @@
 import React from 'react'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
-import AppApi from '../api'
+import MatchesAPI from './api'
 
 class Matches extends React.Component {
 	constructor(props) {
@@ -10,7 +10,7 @@ class Matches extends React.Component {
 		}
 
 		this.updateMatches = this.updateMatches.bind(this)
-		AppApi.ListMatches(this.updateMatches)
+		MatchesAPI.listMatches(this.updateMatches)
 	}
 
 	updateMatches(matches) {

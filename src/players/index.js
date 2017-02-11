@@ -1,6 +1,6 @@
 import React from 'react'
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
-import AppApi from '../api'
+import {Table, TableHeader, TableHeaderColumn, TableBody, TableRow, TableRowColumn} from 'material-ui/Table'
+import PlayersApi from './api'
 
 class Players extends React.Component {
 	constructor(props) {
@@ -10,27 +10,32 @@ class Players extends React.Component {
 		}
 
 		this.updatePlayers = this.updatePlayers.bind(this)
-		AppApi.ListPlayers(this.updatePlayers)
+		PlayersApi.listPlayers(this.updatePlayers)
 	}
 
 	updatePlayers(players) {
 		this.setState({ players })
 	}
 
+	onPlayerSelect(rows) {
+		window.console.debug(rows)
+	}
+
 	render() {
 		const playerList = Array.of(...this.state.players).map((o,i) => (
 			<Player key={i} player={o} />
 		))
+
 		return (
-			<Table>
-				<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+			<Table multiselectable={true} onRowSelection={this.onPlayerSelect} onCellClick={this.onPlayerSelect}>
+				<TableHeader>
 					<TableRow>
 						<TableHeaderColumn>Nome</TableHeaderColumn>
 						<TableHeaderColumn>Gols</TableHeaderColumn>
 						<TableHeaderColumn>Partidas</TableHeaderColumn>
 					</TableRow>
 				</TableHeader>
-				<TableBody>
+				<TableBody displayRowCheckbox={true} showRowHover={true}>
 					{playerList}
 				</TableBody>
 			</Table>
@@ -40,7 +45,7 @@ class Players extends React.Component {
 
 function Player(props) {
 	return (
-		<TableRow>
+		<TableRow hoverable={true} selectable={true}>
 			<TableRowColumn>{props.player.name}</TableRowColumn>
 			<TableRowColumn>{props.player.goals}</TableRowColumn>
 			<TableRowColumn>{props.player.matches}</TableRowColumn>

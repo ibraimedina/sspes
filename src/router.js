@@ -1,15 +1,16 @@
 import React from 'react'
 import { Router, Route, browserHistory } from 'react-router'
-import App from './app'
-import Players from '../players/players'
-import Matches from '../matches/matches'
+
+import Home from './home'
+import Matches from './matches'
+import Players from './players'
 
 function AppRouter() {
 	return (
 		<Router history={browserHistory}>
 			<Route path="/matches" component={Matches}/>
 			<Route path="/players" component={Players}/>
-			<Route path="*" component={App}/>
+			<Route path="*" component={Home}/>
 		</Router>
 	)
 }
