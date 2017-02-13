@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
-import { Center, Page } from 'react-layout-components'
+import { Center } from 'react-layout-components'
 
 import Login from '../login'
 
@@ -22,11 +22,9 @@ class Home extends Component {
 
 	render() {
 		return (
-			<Page>
-				<Center height={'100%'}>
-					<Login onSuccess={this.onLogin}/>
-				</Center>
-			</Page>
+			<Center height={'100%'}>
+				<Login onSuccess={this.onLogin}/>
+			</Center>
 		)
 	}
 }
