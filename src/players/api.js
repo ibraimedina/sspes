@@ -1,16 +1,28 @@
 import AppAPI from '../api'
 import Session from '../session'
 
-const listPlayers = function(callback) {
+const list = function(callback) {
 	const token = Session.getToken()
 	AppAPI.baseReq(
         'GET',
         'https://baas.kinvey.com/appdata/kid_HyAXFKzde/players',
         {Authorization: 'Kinvey ' + token, 'Content-Type': 'application/json'},
-        callback
+        callback,
     )
 }
 
+const create = function(player, callback) {
+	const token = Session.getToken()
+	AppAPI.baseReq(
+		'POST',
+		'https://baas.kinvey.com/appdata/kid_HyAXFKzde/players',
+		{Authorization: 'Kinvey ' + token, 'Content-Type': 'application/json'},
+		callback,
+		player,
+	)
+}
+
 export default {
-	listPlayers,
+	list,
+	create,
 }

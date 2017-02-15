@@ -1,5 +1,7 @@
 import React from 'react'
 import {Table, TableHeader, TableHeaderColumn, TableBody, TableRow, TableRowColumn} from 'material-ui/Table'
+
+import AddPlayerDialog from './add-dialog'
 import PlayersApi from './api'
 
 class Players extends React.Component {
@@ -10,7 +12,7 @@ class Players extends React.Component {
 		}
 
 		this.updatePlayers = this.updatePlayers.bind(this)
-		PlayersApi.listPlayers(this.updatePlayers)
+		PlayersApi.list(this.updatePlayers)
 	}
 
 	updatePlayers(players) {
@@ -27,18 +29,22 @@ class Players extends React.Component {
 		))
 
 		return (
-			<Table multiselectable={true} onRowSelection={this.onPlayerSelect} onCellClick={this.onPlayerSelect}>
-				<TableHeader>
-					<TableRow>
-						<TableHeaderColumn>Nome</TableHeaderColumn>
-						<TableHeaderColumn>Gols</TableHeaderColumn>
-						<TableHeaderColumn>Partidas</TableHeaderColumn>
-					</TableRow>
-				</TableHeader>
-				<TableBody displayRowCheckbox={true} showRowHover={true}>
-					{playerList}
-				</TableBody>
-			</Table>
+			<div>
+				<AddPlayerDialog label="New" />
+				<Table multiselectable={true} onRowSelection={this.onPlayerSelect} onCellClick={this.onPlayerSelect}>
+					<TableHeader>
+						<TableRow>
+							<TableHeaderColumn>Nome</TableHeaderColumn>
+							<TableHeaderColumn>Gols</TableHeaderColumn>
+							<TableHeaderColumn>Partidas</TableHeaderColumn>
+						</TableRow>
+					</TableHeader>
+					<TableBody displayRowCheckbox={true} showRowHover={true}>
+						{playerList}
+					</TableBody>
+				</Table>
+				
+			</div>
 		)
 	}
 }
