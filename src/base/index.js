@@ -1,6 +1,6 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
-import { Page, Box } from 'react-layout-components'
+import { Page, ScrollView } from 'react-layout-components'
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
 import ListIcon from 'material-ui/svg-icons/action/view-list'
 import HomeIcon from 'material-ui/svg-icons/action/home'
@@ -21,14 +21,14 @@ class Base extends React.Component {
 	render() {
 		return (
 			<Page>
-				<Box column fit justifyContent="space-between">
+				<ScrollView column fit justifyContent="space-between">
 					{this.props.children}
 					<BottomNavigation>
 						<BottomNavigationItem label={'Home'} icon={homeIcon} onTouchTap={() => this.onTouchTap('/')}/>
 						<BottomNavigationItem label={'Players'} icon={listIcon} onTouchTap={() => this.onTouchTap('/players')}/>
 						<BottomNavigationItem label={'Matches'} icon={listIcon} onTouchTap={() => this.onTouchTap('/matches')}/>
 					</BottomNavigation>
-				</Box>
+				</ScrollView>
 			</Page>
 		)
 	}

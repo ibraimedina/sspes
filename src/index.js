@@ -6,7 +6,7 @@ import AppRouter from './router'
 import AppTheme from './theme'
 
 ReactDOM.render(
-	<MuiThemeProvider muiTheme={AppTheme}>	
+	<MuiThemeProvider muiTheme={AppTheme}>
 		<AppRouter/>
 	</MuiThemeProvider>,
 	document.getElementById('root')

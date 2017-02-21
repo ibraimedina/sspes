@@ -43,7 +43,6 @@ class Players extends React.Component {
 						{playerList}
 					</TableBody>
 				</Table>
-				
 			</div>
 		)
 	}

@@ -1,5 +1,7 @@
 import React from 'react'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
+
+import AddMatchDialog from './add-dialog'
 import MatchesAPI from './api'
 
 class Matches extends React.Component {
@@ -22,21 +24,24 @@ class Matches extends React.Component {
 			<Match key={i} match={o} />
 		))
 		return (
-			<Table>
-				<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-					<TableRow>
-						<TableHeaderColumn>Jogadores casa</TableHeaderColumn>
-						<TableHeaderColumn>Equipe casa</TableHeaderColumn>
-						<TableHeaderColumn>Gols casa</TableHeaderColumn>
-						<TableHeaderColumn>Gols fora</TableHeaderColumn>
-						<TableHeaderColumn>Equipe fora</TableHeaderColumn>
-						<TableHeaderColumn>Jogadores fora</TableHeaderColumn>
-					</TableRow>
-				</TableHeader>
-				<TableBody>
-					{matchList}
-				</TableBody>
-			</Table>
+			<div>
+				<AddMatchDialog label="New" />
+				<Table>
+					<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+						<TableRow>
+							<TableHeaderColumn>Jogadores casa</TableHeaderColumn>
+							<TableHeaderColumn>Equipe casa</TableHeaderColumn>
+							<TableHeaderColumn>Gols casa</TableHeaderColumn>
+							<TableHeaderColumn>Gols fora</TableHeaderColumn>
+							<TableHeaderColumn>Equipe fora</TableHeaderColumn>
+							<TableHeaderColumn>Jogadores fora</TableHeaderColumn>
+						</TableRow>
+					</TableHeader>
+					<TableBody>
+						{matchList}
+					</TableBody>
+				</Table>
+			</div>
 		)
 	}
 }
