@@ -4,7 +4,6 @@ import { Page, ScrollView } from 'react-layout-components'
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
 import ListIcon from 'material-ui/svg-icons/action/view-list'
 import HomeIcon from 'material-ui/svg-icons/action/home'
-
 const listIcon = <ListIcon />
 const homeIcon = <HomeIcon />
 

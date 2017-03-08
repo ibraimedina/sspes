@@ -29,12 +29,12 @@ class Matches extends React.Component {
 				<Table>
 					<TableHeader displaySelectAll={false} adjustForCheckbox={false}>
 						<TableRow>
-							<TableHeaderColumn>Jogadores casa</TableHeaderColumn>
-							<TableHeaderColumn>Equipe casa</TableHeaderColumn>
-							<TableHeaderColumn>Gols casa</TableHeaderColumn>
-							<TableHeaderColumn>Gols fora</TableHeaderColumn>
-							<TableHeaderColumn>Equipe fora</TableHeaderColumn>
-							<TableHeaderColumn>Jogadores fora</TableHeaderColumn>
+							<TableHeaderColumn>Players home</TableHeaderColumn>
+							<TableHeaderColumn>Team home</TableHeaderColumn>
+							<TableHeaderColumn>Goals home</TableHeaderColumn>
+							<TableHeaderColumn>Goals away</TableHeaderColumn>
+							<TableHeaderColumn>Team away</TableHeaderColumn>
+							<TableHeaderColumn>Players away</TableHeaderColumn>
 						</TableRow>
 					</TableHeader>
 					<TableBody>

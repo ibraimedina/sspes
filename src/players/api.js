@@ -22,7 +22,19 @@ const create = function(player, callback) {
 	)
 }
 
+const update = function(player, callback) {
+	const token = Session.getToken()
+	AppAPI.baseReq(
+		'PUT',
+		'https://baas.kinvey.com/appdata/kid_HyAXFKzde/players/' + player._id,
+		{Authorization: 'Kinvey ' + token, 'Content-Type': 'application/json'},
+		callback,
+		player,
+	)
+}
+
 export default {
 	list,
 	create,
+	update,
 }
