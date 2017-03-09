@@ -1,6 +1,7 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
 import { Page, ScrollView } from 'react-layout-components'
+import muiThemeable from 'material-ui/styles/muiThemeable'
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
 import ListIcon from 'material-ui/svg-icons/action/view-list'
 import HomeIcon from 'material-ui/svg-icons/action/home'
@@ -19,7 +20,7 @@ class Base extends React.Component {
 
 	render() {
 		return (
-			<Page>
+			<Page style={this.props.muiTheme.base}>
 				<ScrollView column fit justifyContent="space-between">
 					{this.props.children}
 					<BottomNavigation>
@@ -33,4 +34,4 @@ class Base extends React.Component {
 	}
 }
 		
-export default Base	
+export default muiThemeable()(Base)	
