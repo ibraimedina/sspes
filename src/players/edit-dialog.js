@@ -9,7 +9,8 @@ class AddPlayerDialog extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			opened: false,
+			hasButton: props.hasButton && true,
+			opened: props.opened || false,
 			player: {},
 		}
 
@@ -20,13 +21,24 @@ class AddPlayerDialog extends React.Component {
 		this.onSubmitDone = this.onSubmitDone.bind(this)
 	}
 
+	componentWillReceiveProps(nextProps) {
+		let diffState = {};
+		if (this.props.opened !== nextProps.opened) diffState.opened = nextProps.opened
+		if (this.props.hasButton !== nextProps.hasButton) diffState.hasButton = nextProps.hasButton
+		if (this.props.player !== nextProps.player) diffState.player = nextProps.player
+
+		if (diffState) {
+			this.setState({
+				...this.state,
+				...diffState
+			})
+		}
+	}
+
 	onOpen() {
 		this.setState({
 			...this.state,
 			opened: true,
-			player: {
-				...this.props.player,
-			},
 		})
 	}
 
@@ -35,6 +47,7 @@ class AddPlayerDialog extends React.Component {
 			...this.state,
 			opened: false,
 		})
+		this.props.onClose()
 	}
 
 	onFormChange(ev) {
@@ -65,6 +78,7 @@ class AddPlayerDialog extends React.Component {
 			opened: false,
 			submitting: false,
 		})
+		this.props.onClose()
 		if (success) this.props.onSave(this.state.player);
 	}
 
@@ -73,9 +87,12 @@ class AddPlayerDialog extends React.Component {
 			<FlatButton label="Cancel" onTouchTap={this.onClose}/>,
 			<FlatButton label="Save" primary={true} disabled={this.state.submitting} onTouchTap={this.onSubmitChanges}/>
 		]
+		const clickButton = this.state.hasButton ? 
+			<FlatButton label={this.props.label || 'EDIT'} primary={true} onTouchTap={this.onOpen}/>
+			:<div></div>
 		return (
 			<div>
-				<FlatButton label={this.props.label} primary={true} onTouchTap={this.onOpen} />
+				{clickButton}
 				<Dialog title={this.state.player.name} open={this.state.opened} onRequestClose={this.onClose}
 					actions={dialogActions}>
 					<div>
