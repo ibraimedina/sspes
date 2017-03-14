@@ -18,7 +18,7 @@ const create = function(match, callback) {
 		'https://baas.kinvey.com/appdata/kid_HyAXFKzde/matches',
 		{Authorization: 'Kinvey ' + token, 'Content-Type': 'application/json'},
 		callback,
-		match,
+		match
 	)
 }
 

@@ -22,7 +22,7 @@ class AddPlayerDialog extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		let diffState = {};
+		let diffState = {}
 		if (this.props.opened !== nextProps.opened) diffState.opened = nextProps.opened
 		if (this.props.hasButton !== nextProps.hasButton) diffState.hasButton = nextProps.hasButton
 		if (this.props.player !== nextProps.player) diffState.player = nextProps.player
@@ -68,7 +68,7 @@ class AddPlayerDialog extends React.Component {
 
 		PlayerAPI.update(
 			this.state.player,
-			this.onSubmitDone,
+			this.onSubmitDone
 		)
 	}
 
@@ -79,7 +79,7 @@ class AddPlayerDialog extends React.Component {
 			submitting: false,
 		})
 		this.props.onClose()
-		if (success) this.props.onSave(this.state.player);
+		if (success) this.props.onSave(this.state.player)
 	}
 
 	render() {

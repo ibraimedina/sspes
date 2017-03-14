@@ -7,7 +7,7 @@ const list = function(callback) {
         'GET',
         'https://baas.kinvey.com/appdata/kid_HyAXFKzde/players',
         {Authorization: 'Kinvey ' + token, 'Content-Type': 'application/json'},
-        callback,
+        callback
     )
 }
 
@@ -18,7 +18,7 @@ const create = function(player, callback) {
 		'https://baas.kinvey.com/appdata/kid_HyAXFKzde/players',
 		{Authorization: 'Kinvey ' + token, 'Content-Type': 'application/json'},
 		callback,
-		player,
+		player
 	)
 }
 
@@ -29,7 +29,7 @@ const update = function(player, callback) {
 		'https://baas.kinvey.com/appdata/kid_HyAXFKzde/players/' + player._id,
 		{Authorization: 'Kinvey ' + token, 'Content-Type': 'application/json'},
 		callback,
-		player,
+		player
 	)
 }
 
