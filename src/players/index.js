@@ -6,7 +6,7 @@ import EditPlayerDialog from './edit-dialog'
 import PlayersApi from './api'
 
 const smColumn = {
-	width: '20%',
+	width: '21%',
 }
 
 class Players extends React.Component {
@@ -15,7 +15,7 @@ class Players extends React.Component {
 		this.state = {
 			players: [],
 			sortBy: 'cupTitles',
-			sortOrder: false, // DESC; ASC = true
+			sortOrder: 1, // ASC; DESC = -1
 			editDialogOpen: false,
 		}
 
@@ -64,8 +64,16 @@ class Players extends React.Component {
 		const sortBy = by.target.getAttribute('name')
 		let sortOrder = this.state.sortOrder
 		if (this.state.sortBy === sortBy) 
-			sortOrder = !sortOrder
-		const sortFn = (p1, p2) => (p1[sortBy] < p2[sortBy]) ^ sortOrder
+			sortOrder *= -1
+		
+		const sortFn = (p1, p2) => {
+			const a = p1[sortBy], b = p2[sortBy]
+			if (isNaN(a) || isNaN(b)) {
+				return (a < b) * sortOrder
+			}
+			else
+				return (a - b) * sortOrder
+		}
 
 		this.setState({
 			...this.state,

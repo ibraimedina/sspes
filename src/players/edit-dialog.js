@@ -2,10 +2,11 @@ import React from 'react'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
+import { Flex } from 'react-layout-components'
 
 import PlayerAPI from './api'
 
-class AddPlayerDialog extends React.Component {
+class EditPlayerDialog extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -95,22 +96,24 @@ class AddPlayerDialog extends React.Component {
 				{clickButton}
 				<Dialog title={this.state.player.name} open={this.state.opened} onRequestClose={this.onClose}
 					actions={dialogActions}>
-					<div>
+					<Flex>
 						<TextField floatingLabelText="Goals" name="goals" type="number" min={0} value={this.state.player.goals} onChange={this.onFormChange}/>
 						<TextField floatingLabelText="Matches" name="matches" type="number" min={0} value={this.state.player.matches} onChange={this.onFormChange}/>
-					</div>
-					<div>
+					</Flex>
+					<Flex>
 						<TextField floatingLabelText="Cup titles" name="cupTitles" type="number" min={0} value={this.state.player.cupTitles} onChange={this.onFormChange}/>
 						<TextField floatingLabelText="Cup runners up" name="cupRunnersUp" type="number" min={0} value={this.state.player.cupRunnersUp} onChange={this.onFormChange}/>
-					</div>
-					<div>
-						<TextField floatingLabelText="Leagues titles" name="leagueTitles" type="number" min={0} value={this.state.player.leagueTitles} onChange={this.onFormChange}/>
-						<TextField floatingLabelText="Leagues runners up" name="leagueRunnersUp" type="number" min={0} value={this.state.player.leagueRunnersUp} onChange={this.onFormChange}/>
-					</div>
+						<TextField floatingLabelText="Cup appearances" name="cupAppearances" type="number" min={0} value={this.state.player.cupAppearances} onChange={this.onFormChange}/>
+					</Flex>
+					<Flex>
+						<TextField floatingLabelText="League titles" name="leagueTitles" type="number" min={0} value={this.state.player.leagueTitles} onChange={this.onFormChange}/>
+						<TextField floatingLabelText="League runners up" name="leagueRunnersUp" type="number" min={0} value={this.state.player.leagueRunnersUp} onChange={this.onFormChange}/>
+						<TextField floatingLabelText="League appearances" name="leagueAppearances" type="number" min={0} value={this.state.player.leagueAppearances} onChange={this.onFormChange}/>
+					</Flex>
 				</Dialog>
 			</div>
 		)
 	}
 }
 
-export default AddPlayerDialog
+export default EditPlayerDialog
